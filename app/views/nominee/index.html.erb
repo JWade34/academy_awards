@@ -1,1 +1,17 @@
-hi
+<br>
+<div class="container">
+
+<%= form_tag root_path, method: :get do %>
+  <%= text_field_tag :search_text %>
+  <%= submit_tag "Search", class: "btn btn-default" %>
+<% end %>
+
+<h4>You searched the Academy Awards database for: <em><%= params[:search_text] %></em>. </h4>
+
+<br>
+<% @nominations.each do |nom| %>
+  <li><%= nom.nominee %> - <%= nom.year %> - <%= nom.category %> - <%= nom.won? %> </li>
+  <br>
+<% end %>
+
+</div>
